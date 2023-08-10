@@ -55,6 +55,10 @@ nextflow run https://github.com/nf-modules-hub/rclone --samplesheet /path/to/sam
 
 To customize these scripts, you can take a look at the available parameters in `./nextflow.config` file and then override them using a local config file, in a directory where you'd like to launch the pipeline.
 
+## Citation
+
+Please use the (Github `citation` page)[https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files] to cite this wrapper in your research.
+
 ## Contribution
 
 The sole purpose of process wrappers in `nf-modules-hub` is to keep the code small, clean and hackable with some basic knowledge of `nextflow` scripting.
