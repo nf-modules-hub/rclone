@@ -11,10 +11,19 @@ rclone
 
 workflow RCLONE {
 
-    if(params.samplesheet) {
+    if( params.samplesheet ) {
 
-        ch_in_copy = Channel.fromFilePairs(params.file_pattern)
-                                    .map { t -> [[id: t[0]], t[1]]} 
+        ch_in_copy = Channel.fromPath( params.samplesheet )
+                    .splitCsv(header: false, skip: 1)
+                    .map{ row -> 
+                            {
+                                source          = row[0]
+                                target          = row[1]
+
+                                return tuple([id:'bulk-copy'], source, target)
+                            }
+                        }
+
     } else {
 
         ch_in_copy = Channel.of([[id:'single-copy'], params.source, params.target])

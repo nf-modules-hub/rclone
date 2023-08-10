@@ -1,46 +1,63 @@
 # Nextflow wrapper for `rclone` process.
 
+This little wrapper is designed to be used with orchestrator systems (HPC, K8s) which have a designated `copy` queue or node.
+
 ## Pre-requisites
 
 - Nextflow
-- Docker 
+- Conda 
 
-**NOTE** If you plan to setup a basic server, then you can refer [minimal-nextflow-setup](https://github.com/nextflow-hub/minimal-nextflow-setup)
+**NOTE** If you plan to setup a basic server, then you can refer [minimal-nextflow-setup](https://github.com/nf-modules-hub/minimal-nextflow-setup)
 
+
+> :warning: **Check `rclone` setup!**:
+Please ensure that your `$HOME/.config/rclone/rclone.conf` file is populated with the correct details of any remotes. For more information please refer the [rclone documentation](https://rclone.org/docs/)
+
+> :heavy_check_mark: Please ensure that your `$HOME/.config/rclone/rclone.conf` file is populated with the correct details of any remotes.
 ## Usage
 
 ```
-nextflow run https://github.com/nf-modules-hub/rclone
+nextflow pull https://github.com/nf-modules-hub/rclone
 ```
 
 ## Options
 
-- `source` and `target`
+- Transfering single files/folder using `source` and `target`
 
-By default, the process assumes the files to follow the `*_{R1,R2}.fastq.gz` pattern, which could be customized using this option
+To transfer a specific file/folder from any source location to a target location, you can rely upon the `source` and `target` parameters.
 
 ```
 nextflow run https://github.com/nf-modules-hub/rclone --source /path/to/source --target /path/to/target
 ```
 
-- `samplesheet`
+- Transfering bulk files/folder using `samplesheet`
 
-By default, the pipeline publishes the results in the `outdir` by copying the relevant output.
+To transfer a specific file/folder from any source location to a target location, you can rely upon the `samplesheet` parameter.
 
-You can update this behavior by simply specifying the alternative such as `move` or `link` etc. 
+
+The structure of samplesheet is very minimal since it only requires `source` and `target` columns as shown below
+
+```csv
+source,target
+/path/to/a_file,registered-remote:/destination/path/to/a_file
+/path/to/a_folder,registered-remote:/destination/path/to/a_folder
+```
+
+Then refer that while invoking the pipeline
 
 ```
 nextflow run https://github.com/nf-modules-hub/rclone --samplesheet /path/to/samplesheet
 ```
 
-For more information please refer [Nextflow documentation](https://www.nextflow.io/docs/latest/process.html#publishdir)
 
 ## Customizing the script
+
+To customize these scripts, you can take a look at the available parameters in `./nextflow.config` file and then override them using a local config file, in a directory where you'd like to launch the pipeline.
+
+## Contribution
 
 The sole purpose of process wrappers in `nf-modules-hub` is to keep the code small, clean and hackable with some basic knowledge of `nextflow` scripting.
 
 If you have specific requirements, you are encouraged to fork/clone and update your version to accomodate your needs. 
-
-## Contribution
 
 Contribution, in all forms, is most welcome!
