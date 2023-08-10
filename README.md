@@ -57,7 +57,7 @@ To customize these scripts, you can take a look at the available parameters in `
 
 ## Citation
 
-Please use the (Github `citation` page)[https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files] to cite this wrapper in your research.
+Please use the [Github `citation` page](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files) to cite this wrapper in your research.
 
 ## Contribution
 
