@@ -23,7 +23,7 @@ nextflow pull https://github.com/nf-modules-hub/rclone
 
 ## Options
 
-- Transfering single files/folder using `source` and `target`
+#### Transfering single files/folder using `source` and `target`
 
 To transfer a specific file/folder from any source location to a target location, you can rely upon the `source` and `target` parameters.
 
@@ -31,7 +31,7 @@ To transfer a specific file/folder from any source location to a target location
 nextflow run https://github.com/nf-modules-hub/rclone --source /path/to/source --target /path/to/target
 ```
 
-- Transfering bulk files/folder using `samplesheet`
+#### Transfering bulk files/folder using `samplesheet`
 
 To transfer a specific file/folder from any source location to a target location, you can rely upon the `samplesheet` parameter.
 
