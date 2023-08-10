@@ -10,10 +10,11 @@ This little wrapper is designed to be used with orchestrator systems (HPC, K8s) 
 **NOTE** If you plan to setup a basic server, then you can refer [minimal-nextflow-setup](https://github.com/nf-modules-hub/minimal-nextflow-setup)
 
 
-> :warning: **Check `rclone` setup!**:
-Please ensure that your `$HOME/.config/rclone/rclone.conf` file is populated with the correct details of any remotes. For more information please refer the [rclone documentation](https://rclone.org/docs/)
+> :warning: **Conda or local setup only**:
+Due to the nature of mounting files in a container, which involves a lot of copy/symlinks overheads, this wrapper assumes that you are using `rclone` installed in a location shared across all nodes.
 
-> :heavy_check_mark: Please ensure that your `$HOME/.config/rclone/rclone.conf` file is populated with the correct details of any remotes.
+> :heavy_check_mark: Please ensure that your `$HOME/.config/rclone/rclone.conf` file is populated with the correct details of any remotes. For more information please refer the [rclone documentation](https://rclone.org/docs/)
+
 ## Usage
 
 ```
