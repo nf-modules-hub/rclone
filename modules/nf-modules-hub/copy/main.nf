@@ -1,6 +1,6 @@
 process COPY {
     tag "$meta.id"
-    label 'process_medium'
+    label 'process_low'
 
     conda "conda-forge::rclone=1.63.1"
 
